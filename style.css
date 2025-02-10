@@ -54,27 +54,39 @@ body {
   position: relative;
 }
 .search__result {
+  border-radius: 15px;
   position: absolute;
   width: 100%;
   top: 100%;
   left: 0;
-  background-color: #fff;
+  background-color: rgb(43, 43, 56);
   display: flex;
   flex-direction: column;
   gap: 5px;
-  max-height: 300px;
+  max-height: 400px;
   overflow: auto;
   z-index: 9999;
+  box-shadow: inset 0 0 25px 0 #54364073, 0 0 25px 0 #5436409a;
 }
 .search__result img {
   width: 75px;
   height: 75px;
+  border-radius: 15%;
+  margin: 10px;
 }
 .search__result li {
   padding: 5px;
   display: flex;
   cursor: pointer;
   align-items: center;
+  color: #fff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+}
+.search__result li:hover {
+  background-color: #5436409a;
+  transition: all 0.5s ease;
 }
 .search input {
   border: none;
@@ -139,11 +151,13 @@ body {
 ::-webkit-scrollbar {
   width: 10px; /* Dikey scroll */
   height: 16px; /* Yatay scroll */
+  border-radius: 8px;
   transition: ease 0.3s ease-in-out;
 }
 
 /* Scrollbar arka planına resim ekle */
 ::-webkit-scrollbar-track {
+  border-radius: 8px;
   background-color: #54364034;
   /* background: url("your-image-url.jpg") no-repeat center center; */
   background-size: cover; /* Resmin tamamını göster */
@@ -157,6 +171,7 @@ body {
 
 /* Kaydırma çubuğuna hover efekti */
 ::-webkit-scrollbar-thumb:hover {
+  border-radius: 8px;
   background: rgba(75, 54, 54, 0.8);
 }
 
@@ -186,8 +201,8 @@ body {
 }
 
 .movie_image {
-  width: 100%;
-  height: 100%;
+  width: 276px;
+  height: 415px;
   object-fit: cover;
   border-radius: 26px;
 }
@@ -201,7 +216,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px 0;
+  margin: 14px 0;
   color: hsla(0, 0%, 100%, 0.504);
 }
 
@@ -300,15 +315,24 @@ body {
   margin: 0 10px;
 }
 .pagination {
-  background-color: #fff;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
 }
 .pagination li {
-  border: 1px solid red;
+  border: 1px solid #ffffff1a;
+  border-radius: 20%;
   padding: 7px;
   cursor: pointer;
+  color: rgba(255, 166, 0, 0.384);
 }
 .pagination li.active {
-  background-color: orange;
+  background-color: rgba(255, 166, 0, 0.384);
   color: #fff;
+}
+.pagination li:hover {
+  background-color: rgba(255, 255, 255, 0.384);
+  color: #fff;
+  transition: all 0.5s ease;
 }

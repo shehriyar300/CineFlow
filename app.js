@@ -35,7 +35,11 @@ const getMovies = (index) => {
                   ? "https://image.tmdb.org/t/p/w500" + element.poster_path
                   : "images/placeholder.png"
               }" alt="" />
-              <h4 class="movie_title" > ${element.title}</h4>
+              <h4 class="movie_title" > ${
+                element.title.length > 15
+                  ? element.title.slice(0, 15) + "..."
+                  : element.title
+              }</h4>
               <h5 class="movie_info">
                 <i><img src="images/star.png" alt=""><p>${element.vote_average
                   .toString()
