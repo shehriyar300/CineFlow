@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background-color: #0f1115;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: inherit;
+  width: 100%;
+  padding: 0 45px;
+  margin: 30px 0;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo img {
+  height: 60px;
+}
+.logo a {
+  color: #fff;
+  height: 60px;
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo a p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  margin-left: 10px;
+}
+.search {
+  display: flex;
+  align-items: right;
+  border-radius: 14px;
+  background-color: rgb(43, 43, 56);
+  margin-left: 20px;
+  padding: 20px 25px;
+  width: 23%;
+}
+.search input {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  color: rgba(255, 255, 255, 0.527);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman';
+  font-size: 22px;
+  padding-left: 8px;
+  font-weight: 300;
+}
+.search i {
+  color: rgba(255, 255, 255, 0.26);
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  height: 300px;
+}
+.genre {
+  background-color: inherit;
+  padding: 20px;
+  color: #fff;
+}
+.movie_main {
+  background-color: #313036;
+  /* background-image: url(images/slider-banner.jpg); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 36px;
+  padding: 36px;
+}
+
+.genre_li {
+  color: #fff;
+  margin: 8px;
+}
+.genre_ul a {
+  color: gray;
+  transition: all 0.7s ease;
+}
+
+.genre_ul a:hover {
+  color: rgb(255, 255, 255);
+}
+
+/* Scrollbar genişliğini ayarla */
+::-webkit-scrollbar {
+  width: 16px; /* Dikey scroll */
+  height: 16px; /* Yatay scroll */
+}
+
+/* Scrollbar arka planına resim ekle */
+::-webkit-scrollbar-track {
+  /* background: url("your-image-url.jpg") no-repeat center center; */
+  background-size: cover; /* Resmin tamamını göster */
+}
+
+/* Scrollbar'ın kaydırma çubuğu */
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 168, 168, 0.5); /* Kaydırma çubuğu rengi */
+  border-radius: 8px;
+}
+
+/* Kaydırma çubuğuna hover efekti */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* ________________________________________________________ */
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
+}
+.movie {
+  width: 90%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif,
+    Geneva, Tahoma, sans-serif;
+  background-color: rgba(43, 43, 56, 0);
+  transition: all 0.5s ease;
+}
+.movie :hover {
+  transition: all 0.5s ease;
+  background-color: rgba(43, 43, 56, 0.5);
+  border-radius: 26px;
+}
+
+.movie_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 26px;
+}
+.movie_title {
+  color: #fff;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 10px;
+}
+.movie_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  color: hsla(0, 0%, 100%, 0.504);
+}
+
+.movie_info > p {
+  background-color: #ffffff1c;
+  padding: 4px;
+  border-radius: 6px;
+  margin-top: 6px;
+  font-size: 16px;
+}
+.movie_info i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+.movie_info i p {
+  margin-top: 8px;
+}
+
+.mySwiper {
+  width: 400px;
+  height: 300px;
+}
+.mySwiper img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.swiper-slide a h1{
+  color: #fff;
+}
+.swiper-slide a p{
+  color: #fff;
+}
+.swiper-slide button{
+  text-decoration: none;
+  color: #fff;
+}
+
+
+.most_watched{
+  display: block;
+}
+.mySwiper_most_watched{
+  width: 80vw;
+  height: 300px;
+}

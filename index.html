@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="images/theater.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <title>CineFlow | Film izlə | Serial izlə</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">
+        <a href="#main">
+          <img src="images/theater.png" alt="" srcset="" />
+          <p>CineFlow</p></a
+        >
+      </div>
+      <div class="search">
+        <i class="fa-solid fa-magnifying-glass"></i
+        ><input
+          placeholder="Search any movies..."
+          type="text"
+          name=""
+          id="search"
+        />
+      </div>
+    </div>
+    <div class="main">
+      <div class="genre">
+        <h1>Janrlar</h1>
+        <ul class="genre_ul"></ul>
+      </div>
+      <div class="movie_main">
+        <div class="slider">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a href="">
+                  <div class="main_slider_background">
+                    <h1>ad</h1>
+                    <div>
+                      <p>tarix</p>
+                      <pre>imbd</pre>
+                      <p>genres</p>
+                    </div>
+                    <p>film haqqinda melumat</p>
+                    <button>indi izle</button>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <!-- <div class="swiper-pagination"></div> -->
+            <div class="autoplay-progress">
+              <svg viewBox="0 0 48 48">
+                <circle cx="24" cy="24" r="20"></circle>
+              </svg>
+              <span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="genres_movies">
+          <!-- ən çox baxılanlar -->
+          <h1>Ən çox baxılanlar</h1>
+
+          <div class="most_watched">
+            <div class="swiper mySwiper_most_watched">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
+              </div>
+
+              <!-- <div class="swiper-pagination"></div> -->
+            </div>
+          </div><h1>IMDB yüksək olanlar</h1>
+
+          <div class="most_watched">
+            <div class="swiper mySwiper_most_watched">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
+              </div>
+
+              <!-- <div class="swiper-pagination"></div> -->
+            </div>
+          </div><h1>Gələcək filmlər</h1>
+
+          <div class="most_watched">
+            <div class="swiper mySwiper_most_watched">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
+              </div>
+
+              <!-- <div class="swiper-pagination"></div> -->
+            </div>
+          </div>
+        </div>
+        <div class="movies"></div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="appSwiper.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
