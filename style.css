@@ -5,7 +5,9 @@
   text-decoration: none;
   list-style: none;
 }
-
+html {
+  scroll-behavior: smooth; 
+}
 body {
   background-color: #0f1115;
 }
@@ -101,6 +103,7 @@ body {
 ::-webkit-scrollbar {
   width: 16px; /* Dikey scroll */
   height: 16px; /* Yatay scroll */
+  transition: ease 0.3s ease-in-out;
 }
 
 /* Scrollbar arka planına resim ekle */
@@ -117,7 +120,7 @@ body {
 
 /* Kaydırma çubuğuna hover efekti */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(75, 54, 54, 0.8);
 }
 
 /* ________________________________________________________ */
@@ -183,8 +186,10 @@ body {
 }
 
 .mySwiper {
-  width: 400px;
+  width: 80vw;
   height: 300px;
+border-radius: 26px;
+  background: linear-gradient(180deg, rgba(252, 0, 0, 0.5) 0%,rgba(0, 0, 0, 0.098) 90%, rgba(0, 0, 0, 0) 100%);
 }
 .mySwiper img{
   display: block;
@@ -212,4 +217,8 @@ body {
 .mySwiper_most_watched{
   width: 80vw;
   height: 300px;
+}
+.mySwiper_most_watched .swiper-wrapper .swiper-slide{
+  background: linear-gradient(180deg, rgba(50, 0, 252, 0.5) 0%,rgba(0, 0, 0, 0.098) 90%, rgba(0, 0, 0, 0) 100%);
+border-radius: 16px;
 }
