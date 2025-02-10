@@ -19,7 +19,7 @@ fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}`)
 let movie = document.createElement("div");
 movie.classList.add("movie");
 movie.innerHTML = ""
-for (let index = 1; index <= 5; index++) {
+for (let index = 1; index <= 1; index++) {
   fetch(
     `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&page=${index}`
   )
