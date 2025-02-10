@@ -6,10 +6,13 @@
   list-style: none;
 }
 html {
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
 }
 body {
   background-color: #0f1115;
+  position: relative;
+  padding-left: 60px;
+
 }
 .header {
   display: flex;
@@ -17,7 +20,7 @@ body {
   align-items: center;
   background-color: inherit;
   width: 100%;
-  padding: 0 45px;
+  padding: 0 45px 0 0;
   margin: 30px 0;
 }
 .logo {
@@ -43,7 +46,7 @@ body {
 }
 .search {
   display: flex;
-  align-items: right;
+  align-items: center;
   border-radius: 14px;
   background-color: rgb(43, 43, 56);
   margin-left: 20px;
@@ -55,7 +58,7 @@ body {
   outline: none;
   background-color: inherit;
   color: rgba(255, 255, 255, 0.527);
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman';
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman";
   font-size: 22px;
   padding-left: 8px;
   font-weight: 300;
@@ -67,31 +70,43 @@ body {
 }
 
 .main {
-  display: grid;
-  grid-template-columns: 1fr 6fr;
-  height: 300px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: Start;
 }
 .genre {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: inherit;
   padding: 20px;
   color: #fff;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  
+}
+.genre h1{
+font-weight: 500;
 }
 .movie_main {
-  background-color: #313036;
+  background-color: #54364034;
   /* background-image: url(images/slider-banner.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  border-top-left-radius: 36px;
-  padding: 36px;
+  border-top-left-radius: 56px;
+  padding:  36px 0px 36px 36px;
 }
 
 .genre_li {
   color: #fff;
-  margin: 8px;
+  margin: 8px 0;
+  font-size: 24px;
+  font-family: Verdana, Geneva, Tahoma;
+  font-weight: 100;
 }
 .genre_ul a {
-  color: gray;
+  color: rgba(128, 128, 128, 0.24);
   transition: all 0.7s ease;
 }
 
@@ -101,13 +116,14 @@ body {
 
 /* Scrollbar genişliğini ayarla */
 ::-webkit-scrollbar {
-  width: 16px; /* Dikey scroll */
+  width: 10px; /* Dikey scroll */
   height: 16px; /* Yatay scroll */
   transition: ease 0.3s ease-in-out;
 }
 
 /* Scrollbar arka planına resim ekle */
 ::-webkit-scrollbar-track {
+  background-color: #54364034;
   /* background: url("your-image-url.jpg") no-repeat center center; */
   background-size: cover; /* Resmin tamamını göster */
 }
@@ -187,38 +203,54 @@ body {
 
 .mySwiper {
   width: 80vw;
-  height: 300px;
-border-radius: 26px;
-  background: linear-gradient(180deg, rgba(252, 0, 0, 0.5) 0%,rgba(0, 0, 0, 0.098) 90%, rgba(0, 0, 0, 0) 100%);
+  height: 83vh;
+  border-radius: 26px;
+ 
+  background-image: url(images/slider-banner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
 }
-.mySwiper img{
+.swiper-wrapper{
+  background: linear-gradient(
+    180deg,
+    
+    rgba(18, 31, 72, 0.259) 60%,
+    #1d191e 100%
+  );
+}
+.mySwiper img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-
-.swiper-slide a h1{
+.swiper-slide a h1 {
   color: #fff;
 }
-.swiper-slide a p{
+.swiper-slide a p {
   color: #fff;
 }
-.swiper-slide button{
+.swiper-slide button {
   text-decoration: none;
   color: #fff;
 }
 
-
-.most_watched{
+.most_watched {
   display: block;
 }
-.mySwiper_most_watched{
+.mySwiper_most_watched {
   width: 80vw;
   height: 300px;
 }
-.mySwiper_most_watched .swiper-wrapper .swiper-slide{
-  background: linear-gradient(180deg, rgba(50, 0, 252, 0.5) 0%,rgba(0, 0, 0, 0.098) 90%, rgba(0, 0, 0, 0) 100%);
-border-radius: 18px;
+.mySwiper_most_watched .swiper-wrapper .swiper-slide {
+  background: linear-gradient(
+    180deg,
+    rgba(50, 0, 252, 0.5) 0%,
+    rgba(0, 0, 0, 0.098) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border-radius: 18px;
 }
