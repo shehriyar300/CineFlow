@@ -102,3 +102,146 @@ document.querySelector(".search__input").addEventListener("input", (e) => {
     searchMovie(e.target.value);
   }, 300);
 });
+
+let sliderAddEl = document.querySelector(".slider_add");
+let nowPlayingMovies = document.createElement("div");
+nowPlayingMovies.classList.add("swiper-slide");
+sliderAddEl.prepend(nowPlayingMovies);
+
+// fetch(
+//   `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=${api_key}`
+// )
+//   .then((response) => response.json())
+//   .then((data) => {
+//     data.results.forEach((element) => {
+//       console.log(element);
+
+//       nowPlayingMovies.innerHTML += `
+
+//         <a href="">
+//                   <div bgcolor="teal" class="main_slider_background">
+//                     <div class="main_slider_text">
+//                       <h1>${element.title}</h1>
+//                       <div>
+//                         <p>${element.release_date}</p>
+//                         <pre>${element.genre_ids.map(id => data.genres.find(g => g.id === id).name).join(', ')}</pre>
+//                         <p>${element.overview.slice(0, 150)}...</p>
+//                         <p>imdb: ${element.vote_average}</p>
+//                       </div>
+//                     </div>
+//                   </div>
+//                 </a>`;
+//     });
+//   });
+
+document.addEventListener("DOMContentLoaded", function () {
+  let sliderAddEl = document.querySelector(".slider_add");
+  if (!sliderAddEl) {
+    console.error("Hata: .slider_add elementi bulunamadı!");
+    return;
+  }
+
+  let genreList = {}; // Film türlerini tutacak nesne
+
+  // İlk olarak film türlerini al
+  fetch(
+    `https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=${api_key}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      data.genres.forEach((genre) => {
+        genreList[genre.id] = genre.name;
+      });
+
+      // Şimdi "Now Playing" filmlerini al
+      return fetch(
+        `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=2&api_key=${api_key}`
+      );
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      data.results.forEach((element) => {
+        let movieGenres = element.genre_ids
+          .map((id) => genreList[id] || "Bilinmiyor")
+          .join(", ");
+
+        let nowPlayingMovies = document.createElement("div");
+        nowPlayingMovies.classList.add("swiper-slide");
+
+        nowPlayingMovies.innerHTML = `
+          <a href="#">
+            <div class="main_slider_background">
+             <img src="https://image.tmdb.org/t/p/w1280/${
+               element.backdrop_path
+             }" alt="" />
+              <div class="main_slider_text">
+                <h1>${element.title}</h1>
+                <div>
+                  <p>${element.release_date.toString().split("-").join(",")}</p>
+                  <pre>IMDB: ${element.vote_average
+                    .toString()
+                    .slice(0, 3)}</pre>
+                  <p>${movieGenres}</p>
+                  </div>
+                  <p>${element.overview.slice(0, 150)}...</p>
+              </div>
+            </div>
+          </a>`;
+
+        sliderAddEl.prepend(nowPlayingMovies); // Yeni film ekle
+      });
+
+      // **Swiper'ı yeniden başlat veya güncelle**
+      let swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      swiper.update(); // **Swiper güncelleniyor**
+    })
+    .catch((error) => console.error("API Hatası:", error));
+});
+
+fetch(
+  `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=2a3c21f7203959050cb73bdefd2b2ae2`
+)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data.results);
+    data.results.forEach((a)=>{
+      console.log(a.title);
+ let addMostWatcher=document.querySelector(".add_most_watcher")
+ if (addMostWatcher) {
+   let mostWatcher=document.createElement("div");
+   mostWatcher.classList.add("swiper-slide");
+   mostWatcher.innerHTML+=`<a href="#movie">
+            <img class="movie_image" src="${
+              a.poster_path
+                ? "https://image.tmdb.org/t/p/w500" + a.poster_path
+                : "images/placeholder.png"
+            }" alt="" />
+            <h4 class="movie_title" > ${
+              a.title.length > 15
+                ? a.title.slice(0, 15) + "..."
+                : a.title
+            }</h4>
+            <h5 class="movie_info">
+              <i><img src="images/star.png" alt=""><p>${a.vote_average
+                .toString()
+                .slice(0, 3)}</p></i>
+              <p>${
+                a.release_date
+                  ? a.release_date.split("-")[0]
+                  : "N/A"
+              }</p>
+            </h5>
+          </a>`
+   addMostWatcher.appendChild(mostWatcher);
+ }
+          })
+  });
