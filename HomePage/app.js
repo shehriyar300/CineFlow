@@ -11,7 +11,7 @@ fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}`)
     data.genres.forEach((element) => {
       let genreLi = document.createElement("li");
       genreLi.classList.add("genre_li");
-      genreLi.innerHTML = `<a href="#${element.name}">${element.name}</a>`;
+      genreLi.innerHTML = `<a target="_blank"  href="#${element.name}">${element.name}</a>`;
       genreUl.appendChild(genreLi);
     });
   });
@@ -29,7 +29,7 @@ const getMovies = (index) => {
       data.results.forEach((element) => {
         let movie = document.createElement("div");
         movie.classList.add("movie");
-        movie.innerHTML = `<a href="#movie">
+        movie.innerHTML = `<a target="_blank"  href="../DetailPage/detail.html">
               <img class="movie_image" src="${
                 element.poster_path
                   ? "https://image.tmdb.org/t/p/w500" + element.poster_path
@@ -41,7 +41,7 @@ const getMovies = (index) => {
                   : element.title
               }</h4>
               <h5 class="movie_info">
-                <i><img src="images/star.png" alt=""><p>${element.vote_average
+                <i><img src="../images/star.png" alt=""><p>${element.vote_average
                   .toString()
                   .slice(0, 3)}</p></i>
                 <p>${
@@ -118,7 +118,7 @@ sliderAddEl.prepend(nowPlayingMovies);
 
 //       nowPlayingMovies.innerHTML += `
 
-//         <a href="">
+//         <a target="_blank"  href="">
 //                   <div bgcolor="teal" class="main_slider_background">
 //                     <div class="main_slider_text">
 //                       <h1>${element.title}</h1>
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
         nowPlayingMovies.classList.add("swiper-slide");
 
         nowPlayingMovies.innerHTML = `
-          <a href="#">
+          <a target="_blank"  href="#">
             <div class="main_slider_background">
              <img src="https://image.tmdb.org/t/p/w1280/${
                element.backdrop_path
@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //         mostWatcher.classList.add("swiper-slide");
 //         mostWatcher.classList.add("most_watcher_slide");
 
-//         mostWatcher.innerHTML += `<a href="#movie">
+//         mostWatcher.innerHTML += `<a target="_blank"  href="../DetailPage/detail.html">
 //             <img class="most_watcher_image" src="${
 //               a.poster_path
 //                 ? "https://image.tmdb.org/t/p/w500" + a.poster_path
@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //               a.title.length > 15 ? a.title.slice(0, 15) + "..." : a.title
 //             }</h4>
 //             <h5 class="most_watcher_info">
-//               <i><img src="images/star.png" alt=""><p>${a.vote_average
+//               <i><img src="../images/star.png" alt=""><p>${a.vote_average
 //                 .toString()
 //                 .slice(0, 3)}</p></i>
 //               <p>${a.release_date ? a.release_date.split("-")[0] : "N/A"}</p>
@@ -254,7 +254,7 @@ fetch(
       mostWatcher.classList.add("swiper-slide");
       mostWatcher.classList.add("most_watcher_slide");
 
-      mostWatcher.innerHTML += `<a href="#movie">
+      mostWatcher.innerHTML += `<a target="_blank"  href="../DetailPage/detail.html">
             <img class="most_watcher_image" src="${
               a.poster_path
                 ? "https://image.tmdb.org/t/p/w500" + a.poster_path
@@ -264,7 +264,7 @@ fetch(
               a.title.length > 15 ? a.title.slice(0, 15) + "..." : a.title
             }</h4>
             <h5 class="most_watcher_info">
-              <i><img src="images/star.png" alt=""><p>${a.vote_average
+              <i><img src="../images/star.png" alt=""><p>${a.vote_average
                 .toString()
                 .slice(0, 3)}</p></i>
               <p>${a.release_date ? a.release_date.split("-")[0] : "N/A"}</p>
@@ -290,7 +290,7 @@ fetch(
       mostWatcher.classList.add("swiper-slide");
       mostWatcher.classList.add("most_watcher_slide");
 
-      mostWatcher.innerHTML += `<a href="#movie">
+      mostWatcher.innerHTML += `<a target="_blank"  href="../DetailPage/detail.html">
             <img class="most_watcher_image" src="${
               a.poster_path
                 ? "https://image.tmdb.org/t/p/w500" + a.poster_path
@@ -300,7 +300,7 @@ fetch(
               a.title.length > 15 ? a.title.slice(0, 15) + "..." : a.title
             }</h4>
             <h5 class="most_watcher_info">
-              <i><img src="images/star.png" alt=""><p>${a.vote_average
+              <i><img src="../images/star.png" alt=""><p>${a.vote_average
                 .toString()
                 .slice(0, 3)}</p></i>
               <p>${a.release_date ? a.release_date.split("-")[0] : "N/A"}</p>
@@ -325,7 +325,7 @@ fetch(
       mostWatcher.classList.add("swiper-slide");
       mostWatcher.classList.add("most_watcher_slide");
 
-      mostWatcher.innerHTML += `<a href="#movie">
+      mostWatcher.innerHTML += `<a target="_blank"  href="../DetailPage/detail.html">
             <img class="most_watcher_image" src="${
               a.poster_path
                 ? "https://image.tmdb.org/t/p/w500" + a.poster_path
@@ -335,7 +335,7 @@ fetch(
               a.title.length > 15 ? a.title.slice(0, 15) + "..." : a.title
             }</h4>
             <h5 class="most_watcher_info">
-              <i><img src="images/star.png" alt=""><p>${a.vote_average
+              <i><img src="../images/star.png" alt=""><p>${a.vote_average
                 .toString()
                 .slice(0, 3)}</p></i>
               <p>${a.release_date ? a.release_date.split("-")[0] : "N/A"}</p>
@@ -346,3 +346,4 @@ fetch(
       add_upcomming.appendChild(mostWatcher);
     });
   });
+  

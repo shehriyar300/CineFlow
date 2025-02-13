@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #0f1115;
+  position: relative;
+  padding-left: 60px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: inherit;
+  width: 100%;
+  padding: 0 45px 0 0;
+  margin: 30px 0;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo img {
+  height: 60px;
+}
+.logo a {
+  color: #fff;
+  height: 60px;
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo a p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  margin-left: 10px;
+}
+.search {
+  display: flex;
+  align-items: center;
+  border-radius: 14px;
+  background-color: rgb(43, 43, 56);
+  margin-left: 20px;
+  padding: 20px 25px;
+  width: 23%;
+  position: relative;
+}
+.search__result {
+  border-radius: 15px;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  background-color: rgb(43, 43, 56);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-height: 400px;
+  overflow: auto;
+  z-index: 9999;
+  box-shadow: inset 0 0 25px 0 #54364073, 0 0 25px 0 #5436409a;
+}
+.search__result img {
+  width: 75px;
+  height: 75px;
+  border-radius: 15%;
+  margin: 10px;
+}
+.search__result li {
+  padding: 5px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  color: #fff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+}
+.search__result li:hover {
+  background-color: #5436409a;
+  transition: all 0.5s ease;
+}
+.search input {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  color: rgba(255, 255, 255, 0.527);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman";
+  font-size: 22px;
+  padding-left: 8px;
+  font-weight: 300;
+}
+.search i {
+  color: rgba(255, 255, 255, 0.26);
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.main {
+  display: flex;
+  align-items: Start;
+}
+.genre {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: inherit;
+  padding: 20px;
+  color: #fff;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+}
+.genre h1 {
+  font-weight: 500;
+}
+
+.genre_li {
+  color: #fff;
+  margin: 8px 0;
+  font-size: 24px;
+  font-family: Verdana, Geneva, Tahoma;
+  font-weight: 100;
+}
+.genre_ul a {
+  color: rgba(128, 128, 128, 0.24);
+  transition: all 0.7s ease;
+}
+
+.genre_ul a:hover {
+  color: rgb(255, 255, 255);
+}
+
+/* Scrollbar genişliğini ayarla */
+::-webkit-scrollbar {
+  width: 10px; /* Dikey scroll */
+  height: 16px; /* Yatay scroll */
+  border-radius: 8px;
+  /* transition: ease 0.3s ease-in-out; */
+}
+
+/* Scrollbar arka planına resim ekle */
+::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: #54364034;
+  /* background: url("your-image-url.jpg") no-repeat center center; */
+  background-size: cover; /* Resmin tamamını göster */
+}
+
+/* Scrollbar'ın kaydırma çubuğu */
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 168, 168, 0.5); /* Kaydırma çubuğu rengi */
+  border-radius: 8px;
+}
+
+/* Kaydırma çubuğuna hover efekti */
+::-webkit-scrollbar-thumb:hover {
+  border-radius: 8px;
+  background: rgba(75, 54, 54, 0.8);
+}
+
+.detail_movie > img {
+  width: 400px;
+  border-radius: 20px;
+}
+.detail_movie {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.799)),
+    url("../images/slider-banner.jpg");
+  width: 100%;
+  padding: 30px;
+  border-radius: 30px;
+  margin-left: 80px;
+  z-index: -1;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+.detail_movie_info {
+  color: #fff;
+}
+.detail_movie_info h1 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 80px;
+  font-weight: 600;
+}
+.movie_about {
+  display: block !important;
+}
