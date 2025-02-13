@@ -153,9 +153,8 @@ document.addEventListener("DOMContentLoaded", function () {
         genreList[genre.id] = genre.name;
       });
 
-      // Şimdi "Now Playing" filmlerini al
       return fetch(
-        `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=2&api_key=${api_key}`
+        `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=4&api_key=${api_key}`
       );
     })
     .then((response) => response.json())
@@ -178,12 +177,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h1>${element.title}</h1>
                 <div>
                   <p>${element.release_date.toString().split("-").join(",")}</p>
-                  <pre>IMDB: ${element.vote_average
-                    .toString()
-                    .slice(0, 3)}</pre>
+                  <pre>${element.vote_average.toString().slice(0, 3)}</pre>
                   <p>${movieGenres}</p>
                   </div>
                   <p>${element.overview.slice(0, 150)}...</p>
+                  <button class="btn"><i class="fa-regular fa-circle-play"></i>Watch now</button>
               </div>
             </div>
           </a>`;
@@ -213,35 +211,32 @@ fetch(
   .then((response) => response.json())
   .then((data) => {
     console.log(data.results);
-    data.results.forEach((a)=>{
+    data.results.forEach((a) => {
       console.log(a.title);
- let addMostWatcher=document.querySelector(".add_most_watcher")
- if (addMostWatcher) {
-   let mostWatcher=document.createElement("div");
-   mostWatcher.classList.add("swiper-slide");
-   mostWatcher.innerHTML+=`<a href="#movie">
-            <img class="movie_image" src="${
+      let addMostWatcher = document.querySelector(".add_most_watcher");
+      if (addMostWatcher) {
+        let mostWatcher = document.createElement("div");
+        mostWatcher.classList.add("swiper-slide");
+        mostWatcher.classList.add("most_watcher_slide");
+
+        mostWatcher.innerHTML += `<a href="#movie">
+            <img class="most_watcher_image" src="${
               a.poster_path
                 ? "https://image.tmdb.org/t/p/w500" + a.poster_path
                 : "images/placeholder.png"
             }" alt="" />
-            <h4 class="movie_title" > ${
-              a.title.length > 15
-                ? a.title.slice(0, 15) + "..."
-                : a.title
+            <h4 class="most_watcher_title" > ${
+              a.title.length > 15 ? a.title.slice(0, 15) + "..." : a.title
             }</h4>
-            <h5 class="movie_info">
+            <h5 class="most_watcher_info">
               <i><img src="images/star.png" alt=""><p>${a.vote_average
                 .toString()
                 .slice(0, 3)}</p></i>
-              <p>${
-                a.release_date
-                  ? a.release_date.split("-")[0]
-                  : "N/A"
-              }</p>
+              <p>${a.release_date ? a.release_date.split("-")[0] : "N/A"}</p>
             </h5>
-          </a>`
-   addMostWatcher.appendChild(mostWatcher);
- }
-          })
+            
+          </a>`;
+        addMostWatcher.appendChild(mostWatcher);
+      }
+    });
   });

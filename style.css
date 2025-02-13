@@ -152,7 +152,7 @@ body {
   width: 10px; /* Dikey scroll */
   height: 16px; /* Yatay scroll */
   border-radius: 8px;
-  transition: ease 0.3s ease-in-out;
+  /* transition: ease 0.3s ease-in-out; */
 }
 
 /* Scrollbar arka planına resim ekle */
@@ -270,12 +270,14 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 26px;
-  background: linear-gradient(
+  box-shadow: inset 0px -20px 20px 20px rgb(29, 26, 30);
+  border: none;
+  /* background: linear-gradient(
     0deg,
-    rgba(29,26,30,1) 0%,
+    rgba(29, 26, 30, 1) 0%,
     rgba(0, 0, 0, 0.098) 50%,
     rgba(0, 0, 0, 0) 100%
-  );
+  ); */
   z-index: 1;
 }
 
@@ -289,28 +291,46 @@ body {
   text-decoration: none;
   color: #fff;
 }
-.add_most_watcher{
+.add_most_watcher {
   display: flex;
   justify-content: center;
+  transform: translate3d(1812px, 0px, 0px) ;
 }
 
 .most_watched {
   display: block;
 }
-.mySwiper_most_watched {
-  width: 80vw;
-  height: 300px;
+
+.most_h1{
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif, Times, serif;
+font-style: normal;
+font-size: 32px;
+color: #fff;
+margin: 30px;
 }
 .mySwiper_most_watched .swiper-wrapper .swiper-slide {
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     rgba(50, 0, 252, 0.5) 0%,
     rgba(0, 0, 0, 0.098) 90%,
     rgba(0, 0, 0, 0) 100%
-  );
+  ); */
   border-radius: 18px;
 }
-
+.btn {
+  background-color: #ff1414;
+  border: none;
+  padding: 18px 60px;
+  border-radius: 10px;
+  margin-top: 40px;
+  font-size: 24px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 100;
+}
+.btn i {
+  margin-right: 20px;
+}
 .main_slider_background h1 {
   color: #fff;
   font-size: 70px;
@@ -321,39 +341,36 @@ body {
   margin: 200px 0 0 80px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   z-index: 999 !important;
-  text-shadow: #000000 2px 2px 2px ;
-
+  text-shadow: #000000 2px 2px 2px;
 }
 .main_slider_text div {
   display: flex;
   align-items: center;
-  text-shadow: #000000 0px 1px 1px ;
+  text-shadow: #000000 0px 1px 1px;
   font-size: 24px;
-  font-weight: 800;
-
+  font-weight: 100;
 }
 
 .main_slider_text div p {
-  font-size: 24px;
+  font-size: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 800;
-  text-shadow: #000000 1px 1px 2px ;
+  font-weight: 100;
+  text-shadow: #000000 1px 1px 2px;
   margin: 50px 0;
-  
 }
 .main_slider_text > p {
   margin-top: 10px;
-  font-size: 28px;
-  color: #000000af !important;
+  font-size: 20px;
+  color: #ffffffaf !important;
   width: 50%;
-  text-shadow: #fff 2px 2px px ;
+  text-shadow: #ffffff 2px 2px px !important ;
 }
 .main_slider_text div pre {
-  border: 1px solid #000000;
+  border: 1px solid #00000065;
   margin: 0 10px;
   border-radius: 4px;
   color: #fff;
-  background-color: #13131352;
+  background-color: #85858586;
   padding: 2px;
 }
 .pagination {
@@ -377,4 +394,71 @@ body {
   background-color: rgba(255, 255, 255, 0.384);
   color: #fff;
   transition: all 0.5s ease;
+}
+.mySwiper_most_watched {
+  width: 80vw;
+  /* height: 400px; */
+}
+.most_watcher_image {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+}
+.most_watcher_slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.most_watcher_slide img {
+  width: 100%;
+  /* height: 300px; */
+  object-fit: cover;
+  border-radius: 20px;
+}
+.most_watcher_title {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif, Times, serif;
+  font-style: normal;
+  font-size: 20px;
+  color: #fff;
+  margin: 10px 4px;
+}
+.most_watcher_info {
+  display: flex;
+  align-items: center;
+  margin: 0 4px;
+}
+.most_watcher_info > p {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif, Times, serif;
+  font-style: normal;
+
+  background-color: #8f7b9459;
+  border-radius: 4px;
+  padding: 6px;
+}
+.most_watcher_info i {
+  /* height: 100%; */
+  width: 100%;
+  display: flex;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif, Times, serif;
+  font-style: normal;
+
+  font-size: 20px;
+  font-weight: 100;
+}
+.most_watcher_info i p {
+  margin-top: 6px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif, Times, serif;
+  font-style: normal;
+}
+.most_watcher_info img {
+  height: 30px;
+  width: 30px;
+  object-fit: cover;
+}
+.dg {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
 }
