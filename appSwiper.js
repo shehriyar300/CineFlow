@@ -5,7 +5,7 @@ var swiper = new Swiper(".mySwiper", {
   centeredSlides: true,
   autoplay: {
     delay: 3000,
-    disableOnInteraction: false,
+    disableOnInteraction: true,
   },
   pagination: {
     el: ".swiper-pagination",
@@ -33,5 +33,6 @@ var swiper = new Swiper(".mySwiper_most_watched", {
     clickable: true,
   },
 });
+
 
 

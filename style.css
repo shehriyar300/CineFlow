@@ -180,6 +180,7 @@ body {
 .movies {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
+  margin: 60px 0;
 }
 .movie {
   width: 90%;
@@ -226,15 +227,21 @@ body {
   border-radius: 6px;
   margin-top: 6px;
   font-size: 16px;
+  font-weight: 100;
+  font-style: normal;
 }
 .movie_info i {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 25px;
+  font-weight: 100;
+  font-style: normal;
 }
 .movie_info i p {
   margin-top: 8px;
+  font-weight: 100;
+  font-style: normal;
 }
 
 .mySwiper {
@@ -291,11 +298,10 @@ body {
   text-decoration: none;
   color: #fff;
 }
-.add_most_watcher {
-  display: flex;
-  justify-content: center;
-  transform: translate3d(1812px, 0px, 0px) ;
-}
+
+
+
+
 
 .most_watched {
   display: block;
@@ -400,8 +406,10 @@ margin: 30px;
   /* height: 400px; */
 }
 .most_watcher_image {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+
+object-fit: cover;
+  height: 371px;
+
 }
 .most_watcher_slide {
   width: 100%;

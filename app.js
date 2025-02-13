@@ -185,7 +185,6 @@ document.addEventListener("DOMContentLoaded", function () {
               </div>
             </div>
           </a>`;
-
         sliderAddEl.prepend(nowPlayingMovies); // Yeni film ekle
       });
 
@@ -205,6 +204,42 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => console.error("API Hatası:", error));
 });
 
+// fetch(
+//   `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=2a3c21f7203959050cb73bdefd2b2ae2`
+// )
+//   .then((response) => response.json())
+//   .then((data) => {
+//     console.log(data.results);
+//     data.results.forEach((a) => {
+//       console.log(a.title);
+//       let addMostWatcher = document.querySelector(".add_most_watcher");
+
+//       if (addMostWatcher) {
+//         let mostWatcher = document.createElement("div");
+//         mostWatcher.classList.add("swiper-slide");
+//         mostWatcher.classList.add("most_watcher_slide");
+
+//         mostWatcher.innerHTML += `<a href="#movie">
+//             <img class="most_watcher_image" src="${
+//               a.poster_path
+//                 ? "https://image.tmdb.org/t/p/w500" + a.poster_path
+//                 : "images/placeholder.png"
+//             }" alt="" />
+//             <h4 class="most_watcher_title" > ${
+//               a.title.length > 15 ? a.title.slice(0, 15) + "..." : a.title
+//             }</h4>
+//             <h5 class="most_watcher_info">
+//               <i><img src="images/star.png" alt=""><p>${a.vote_average
+//                 .toString()
+//                 .slice(0, 3)}</p></i>
+//               <p>${a.release_date ? a.release_date.split("-")[0] : "N/A"}</p>
+//             </h5>
+
+//           </a>`;
+//         addMostWatcher.appendChild(mostWatcher);
+//       }
+//     });
+//   });
 fetch(
   `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=2a3c21f7203959050cb73bdefd2b2ae2`
 )
@@ -214,12 +249,12 @@ fetch(
     data.results.forEach((a) => {
       console.log(a.title);
       let addMostWatcher = document.querySelector(".add_most_watcher");
-      if (addMostWatcher) {
-        let mostWatcher = document.createElement("div");
-        mostWatcher.classList.add("swiper-slide");
-        mostWatcher.classList.add("most_watcher_slide");
 
-        mostWatcher.innerHTML += `<a href="#movie">
+      let mostWatcher = document.createElement("div");
+      mostWatcher.classList.add("swiper-slide");
+      mostWatcher.classList.add("most_watcher_slide");
+
+      mostWatcher.innerHTML += `<a href="#movie">
             <img class="most_watcher_image" src="${
               a.poster_path
                 ? "https://image.tmdb.org/t/p/w500" + a.poster_path
@@ -236,7 +271,78 @@ fetch(
             </h5>
             
           </a>`;
-        addMostWatcher.appendChild(mostWatcher);
-      }
+
+      addMostWatcher.appendChild(mostWatcher);
+    });
+  });
+
+fetch(
+  `https://api.themoviedb.org/3/movie/top_rated?&language=en-US&page=1&api_key=2a3c21f7203959050cb73bdefd2b2ae2`
+)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data.results);
+    data.results.forEach((a) => {
+      console.log(a.title);
+      let addImdb = document.querySelector(".add_imdb");
+
+      let mostWatcher = document.createElement("div");
+      mostWatcher.classList.add("swiper-slide");
+      mostWatcher.classList.add("most_watcher_slide");
+
+      mostWatcher.innerHTML += `<a href="#movie">
+            <img class="most_watcher_image" src="${
+              a.poster_path
+                ? "https://image.tmdb.org/t/p/w500" + a.poster_path
+                : "images/placeholder.png"
+            }" alt="" />
+            <h4 class="most_watcher_title" > ${
+              a.title.length > 15 ? a.title.slice(0, 15) + "..." : a.title
+            }</h4>
+            <h5 class="most_watcher_info">
+              <i><img src="images/star.png" alt=""><p>${a.vote_average
+                .toString()
+                .slice(0, 3)}</p></i>
+              <p>${a.release_date ? a.release_date.split("-")[0] : "N/A"}</p>
+            </h5>
+            
+          </a>`;
+
+      addImdb.appendChild(mostWatcher);
+    });
+  });
+fetch(
+  `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=9&api_key=2a3c21f7203959050cb73bdefd2b2ae2`
+)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data.results);
+    data.results.forEach((a) => {
+      console.log(a.title);
+      let add_upcomming = document.querySelector(".add_upcomming");
+
+      let mostWatcher = document.createElement("div");
+      mostWatcher.classList.add("swiper-slide");
+      mostWatcher.classList.add("most_watcher_slide");
+
+      mostWatcher.innerHTML += `<a href="#movie">
+            <img class="most_watcher_image" src="${
+              a.poster_path
+                ? "https://image.tmdb.org/t/p/w500" + a.poster_path
+                : "images/placeholder.png"
+            }" alt="" />
+            <h4 class="most_watcher_title" > ${
+              a.title.length > 15 ? a.title.slice(0, 15) + "..." : a.title
+            }</h4>
+            <h5 class="most_watcher_info">
+              <i><img src="images/star.png" alt=""><p>${a.vote_average
+                .toString()
+                .slice(0, 3)}</p></i>
+              <p>${a.release_date ? a.release_date.split("-")[0] : "N/A"}</p>
+            </h5>
+            
+          </a>`;
+
+      add_upcomming.appendChild(mostWatcher);
     });
   });
