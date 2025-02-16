@@ -269,7 +269,7 @@ body {
   z-index: -1;
 }
 
-.mySwiper::after {
+.mySwiper::afte {
   content: "";
   position: absolute;
   top: 0;

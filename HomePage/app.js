@@ -29,28 +29,27 @@ const getMovies = (index) => {
       data.results.forEach((element) => {
         let movie = document.createElement("div");
         movie.classList.add("movie");
-        movie.innerHTML = `<a target="_blank"  href="../DetailPage/detail.html">
-              <img class="movie_image" src="${
-                element.poster_path
-                  ? "https://image.tmdb.org/t/p/w500" + element.poster_path
-                  : "images/placeholder.png"
-              }" alt="" />
-              <h4 class="movie_title" > ${
-                element.title.length > 15
-                  ? element.title.slice(0, 15) + "..."
-                  : element.title
-              }</h4>
-              <h5 class="movie_info">
-                <i><img src="../images/star.png" alt=""><p>${element.vote_average
-                  .toString()
-                  .slice(0, 3)}</p></i>
-                <p>${
-                  element.release_date
-                    ? element.release_date.split("-")[0]
-                    : "N/A"
-                }</p>
-              </h5>
-            </a>`;
+        movie.innerHTML = `<a target="_blank" href="../DetailPage/detail.html?id=${
+          element.id
+        }">
+  <img class="movie_image" src="${
+    element.poster_path
+      ? "https://image.tmdb.org/t/p/w500" + element.poster_path
+      : "images/placeholder.png"
+  }" alt="" />
+  <h4 class="movie_title">${
+    element.title.length > 15
+      ? element.title.slice(0, 15) + "..."
+      : element.title
+  }</h4>
+  <h5 class="movie_info">
+    <i><img src="../images/star.png" alt=""><p>${element.vote_average
+      .toString()
+      .slice(0, 3)}</p></i>
+    <p>${element.release_date ? element.release_date.split("-")[0] : "N/A"}</p>
+  </h5>
+</a>`;
+
         movies.appendChild(movie);
       });
     });
@@ -108,31 +107,6 @@ let nowPlayingMovies = document.createElement("div");
 nowPlayingMovies.classList.add("swiper-slide");
 sliderAddEl.prepend(nowPlayingMovies);
 
-// fetch(
-//   `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=${api_key}`
-// )
-//   .then((response) => response.json())
-//   .then((data) => {
-//     data.results.forEach((element) => {
-//       console.log(element);
-
-//       nowPlayingMovies.innerHTML += `
-
-//         <a target="_blank"  href="">
-//                   <div bgcolor="teal" class="main_slider_background">
-//                     <div class="main_slider_text">
-//                       <h1>${element.title}</h1>
-//                       <div>
-//                         <p>${element.release_date}</p>
-//                         <pre>${element.genre_ids.map(id => data.genres.find(g => g.id === id).name).join(', ')}</pre>
-//                         <p>${element.overview.slice(0, 150)}...</p>
-//                         <p>imdb: ${element.vote_average}</p>
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </a>`;
-//     });
-//   });
 
 document.addEventListener("DOMContentLoaded", function () {
   let sliderAddEl = document.querySelector(".slider_add");
@@ -141,9 +115,8 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  let genreList = {}; // Film türlerini tutacak nesne
+  let genreList = {}; 
 
-  // İlk olarak film türlerini al
   fetch(
     `https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=${api_key}`
   )
@@ -168,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
         nowPlayingMovies.classList.add("swiper-slide");
 
         nowPlayingMovies.innerHTML = `
-          <a target="_blank"  href="#">
+          <a target="_blank"  href="detail.html?id=${element.id}>
             <div class="main_slider_background">
              <img src="https://image.tmdb.org/t/p/w1280/${
                element.backdrop_path
@@ -185,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
               </div>
             </div>
           </a>`;
-        sliderAddEl.prepend(nowPlayingMovies); // Yeni film ekle
+        sliderAddEl.prepend(nowPlayingMovies); 
       });
 
       // **Swiper'ı yeniden başlat veya güncelle**
@@ -346,4 +319,3 @@ fetch(
       add_upcomming.appendChild(mostWatcher);
     });
   });
-  
