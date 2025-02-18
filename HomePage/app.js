@@ -1,20 +1,7 @@
-// const totalPages = 6;
 let movies = document.querySelector(".movies");
 let genreUl = document.querySelector(".genre_ul");
-let moviesContainer = document.querySelector(".movies"); // Film kartlarını ekleyeceğimiz ana div
+let moviesContainer = document.querySelector(".movies");
 const api_key = "2a3c21f7203959050cb73bdefd2b2ae2";
-const totalPages = 1;
-
-fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}`)
-  .then((response) => response.json())
-  .then((data) => {
-    data.genres.forEach((element) => {
-      let genreLi = document.createElement("li");
-      genreLi.classList.add("genre_li");
-      genreLi.innerHTML = `<a target="_blank"  href="#${element.name}">${element.name}</a>`;
-      genreUl.appendChild(genreLi);
-    });
-  });
 
 let movie = document.createElement("div");
 movie.classList.add("movie");
@@ -107,7 +94,6 @@ let nowPlayingMovies = document.createElement("div");
 nowPlayingMovies.classList.add("swiper-slide");
 sliderAddEl.prepend(nowPlayingMovies);
 
-
 document.addEventListener("DOMContentLoaded", function () {
   let sliderAddEl = document.querySelector(".slider_add");
   if (!sliderAddEl) {
@@ -115,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  let genreList = {}; 
+  let genreList = {};
 
   fetch(
     `https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=${api_key}`
@@ -127,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       return fetch(
-        `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=4&api_key=${api_key}`
+        `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=${api_key}`
       );
     })
     .then((response) => response.json())
@@ -158,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
               </div>
             </div>
           </a>`;
-        sliderAddEl.prepend(nowPlayingMovies); 
+        sliderAddEl.prepend(nowPlayingMovies);
       });
 
       // **Swiper'ı yeniden başlat veya güncelle**
@@ -177,42 +163,6 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => console.error("API Hatası:", error));
 });
 
-// fetch(
-//   `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=2a3c21f7203959050cb73bdefd2b2ae2`
-// )
-//   .then((response) => response.json())
-//   .then((data) => {
-//     console.log(data.results);
-//     data.results.forEach((a) => {
-//       console.log(a.title);
-//       let addMostWatcher = document.querySelector(".add_most_watcher");
-
-//       if (addMostWatcher) {
-//         let mostWatcher = document.createElement("div");
-//         mostWatcher.classList.add("swiper-slide");
-//         mostWatcher.classList.add("most_watcher_slide");
-
-//         mostWatcher.innerHTML += `<a target="_blank"  href="../DetailPage/detail.html">
-//             <img class="most_watcher_image" src="${
-//               a.poster_path
-//                 ? "https://image.tmdb.org/t/p/w500" + a.poster_path
-//                 : "images/placeholder.png"
-//             }" alt="" />
-//             <h4 class="most_watcher_title" > ${
-//               a.title.length > 15 ? a.title.slice(0, 15) + "..." : a.title
-//             }</h4>
-//             <h5 class="most_watcher_info">
-//               <i><img src="../images/star.png" alt=""><p>${a.vote_average
-//                 .toString()
-//                 .slice(0, 3)}</p></i>
-//               <p>${a.release_date ? a.release_date.split("-")[0] : "N/A"}</p>
-//             </h5>
-
-//           </a>`;
-//         addMostWatcher.appendChild(mostWatcher);
-//       }
-//     });
-//   });
 fetch(
   `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=2a3c21f7203959050cb73bdefd2b2ae2`
 )
@@ -317,5 +267,82 @@ fetch(
           </a>`;
 
       add_upcomming.appendChild(mostWatcher);
+    });
+  });
+
+document.addEventListener("click", (event) => {
+  let searchBox = document.querySelector(".search__result");
+  let searchInput = document.querySelector(".search__input");
+
+  if (!searchBox.contains(event.target) && event.target !== searchInput) {
+    searchBox.innerHTML = "";
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    document.querySelector(".search__result").innerHTML = "";
+    document.querySelector(".search__result").value = "";
+  }
+});
+const getMoviesByGenre = (genreId) => {
+  movies.innerHTML = "";
+  document.querySelector(".swiper-button-next").style.display = "none";
+  document.querySelector(".swiper-button-prev").style.display = "none";
+  document.querySelector(".slider_add").style.display = "none";
+
+  document.querySelector(".slider").style.height = "0px";
+  document.querySelector(".genres_movies").style.display = "none";
+
+  fetch(
+    `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&with_genres=${genreId}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      data.results.forEach((element) => {
+        let movie = document.createElement("div");
+        movie.classList.add("movie");
+        movie.innerHTML = `<a target="_blank" href="../DetailPage/detail.html?id=${
+          element.id
+        }">
+        <img class="movie_image" src="${
+          element.poster_path
+            ? "https://image.tmdb.org/t/p/w500" + element.poster_path
+            : "images/placeholder.png"
+        }" alt="" />
+        <h4 class="movie_title">${
+          element.title.length > 15
+            ? element.title.slice(0, 15) + "..."
+            : element.title
+        }</h4>
+        <h5 class="movie_info">
+          <i><img src="../images/star.png" alt=""><p>${element.vote_average
+            .toString()
+            .slice(0, 3)}</p></i>
+          <p>${
+            element.release_date ? element.release_date.split("-")[0] : "N/A"
+          }</p>
+        </h5>
+      </a>`;
+
+        movies.appendChild(movie);
+      });
+    })
+    .catch((error) => console.error("Error fetching movies by genre:", error));
+};
+
+// Janr listesi oluşturulurken event listener ekleyelim
+fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}`)
+  .then((response) => response.json())
+  .then((data) => {
+    data.genres.forEach((element) => {
+      let genreLi = document.createElement("li");
+      genreLi.classList.add("genre_li");
+      genreLi.innerHTML = `<a href="#">${element.name}</a>`;
+      genreLi.dataset.genreId = element.id; // Janr ID'sini kaydediyoruz
+      genreLi.addEventListener("click", () => {
+        getMoviesByGenre(element.id, element.name); // Tıklanınca filmleri getir
+      });
+      genreUl.appendChild(genreLi);
     });
   });

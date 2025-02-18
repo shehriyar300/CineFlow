@@ -25,7 +25,7 @@ const searchMovie = (q) => {
     .then((data) => {
       data.results.forEach((element) => {
         resultsDiv.innerHTML += `<li>
-          <img src="https://image.tmdb.org/t/p/w500/${element.poster_path}"/>
+          <img src="https://image.tmdb.org/t/p/w780/${element.poster_path}"/>
           <p>${element.title}</p>
           </li>`;
       });
@@ -60,7 +60,7 @@ if (movieId) {
       ).style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url("https://image.tmdb.org/t/p/w780/${data.backdrop_path}")`;
 
       document.querySelector(".detail_movie").innerHTML = `
-        <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt="" />
+        <img src="https://image.tmdb.org/t/p/w780/${data.poster_path}" alt="" />
         <div class="detail_movie_info">
           <h1>${data.title}</h1>
           <div class="detail_movie_imdb">
