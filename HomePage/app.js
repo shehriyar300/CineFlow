@@ -78,7 +78,7 @@ const getMovies = (index) => {
       : element.title
   }</h4>
   <h5 class="movie_info">
-    <i><img src="../images/star.png" alt=""><p>${element.vote_average
+    <i><img src="images/star.png" alt=""><p>${element.vote_average
       .toString()
       .slice(0, 3)}</p></i>
     <p>${element.release_date ? element.release_date.split("-")[0] : "N/A"}</p>
@@ -281,7 +281,7 @@ fetch(
               a.title.length > 15 ? a.title.slice(0, 15) + "..." : a.title
             }</h4>
             <h5 class="most_watcher_info">
-              <i><img src="../images/star.png" alt=""><p>${a.vote_average
+              <i><img src="images/star.png" alt=""><p>${a.vote_average
                 .toString()
                 .slice(0, 3)}</p></i>
               <p>${a.release_date ? a.release_date.split("-")[0] : "N/A"}</p>
@@ -317,7 +317,7 @@ fetch(
               a.title.length > 15 ? a.title.slice(0, 15) + "..." : a.title
             }</h4>
             <h5 class="most_watcher_info">
-              <i><img src="../images/star.png" alt=""><p>${a.vote_average
+              <i><img src="images/star.png" alt=""><p>${a.vote_average
                 .toString()
                 .slice(0, 3)}</p></i>
               <p>${a.release_date ? a.release_date.split("-")[0] : "N/A"}</p>
@@ -352,7 +352,7 @@ fetch(
               a.title.length > 15 ? a.title.slice(0, 15) + "..." : a.title
             }</h4>
             <h5 class="most_watcher_info">
-              <i><img src="../images/star.png" alt=""><p>${a.vote_average
+              <i><img src="images/star.png" alt=""><p>${a.vote_average
                 .toString()
                 .slice(0, 3)}</p></i>
               <p>${a.release_date ? a.release_date.split("-")[0] : "N/A"}</p>
@@ -408,7 +408,7 @@ const getMoviesByGenre = (genreId, page = 1) => {
             : element.title
         }</h4>
         <h5 class="movie_info">
-          <i><img src="../images/star.png" alt=""><p>${element.vote_average
+          <i><img src="images/star.png" alt=""><p>${element.vote_average
             .toString()
             .slice(0, 3)}</p></i>
           <p>${

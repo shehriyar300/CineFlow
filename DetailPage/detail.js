@@ -77,7 +77,7 @@ const searchMovie = (q) => {
     .then((data) => {
       data.results.forEach((element) => {
         resultsDiv.innerHTML += `
-            <a target="_blank" href="../DetailPage/detail.html?id=${element.id}">
+            <a target="_blank" href="DetailPage/detail.html?id=${element.id}">
               <li>
                 <img class="search_img" src="https://image.tmdb.org/t/p/w780/${element.poster_path}" />
                 <p class="search_title">${element.title}</p>
@@ -158,54 +158,17 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-// fetch(
-//   `https://api.themoviedb.org/3/movie/top_rated?&language=${lang}&page=1&api_key=2a3c21f7203959050cb73bdefd2b2ae2`
-// )
-//   .then((response) => response.json())
-//   .then((data) => {
-//     data.results.forEach((a) => {
-//       let addAlsoMovie = document.querySelector(".add_also_movie");
 
-//       let mostWatcher = document.createElement("div");
-//       mostWatcher.classList.add("swiper-slide");
-
-//       mostWatcher.innerHTML += `<a target="_blank"  href="../DetailPage/detail.html?id=${
-//         a.id
-//       }">
-//             <img class="most_watcher_image" src="${
-//               a.poster_path
-//                 ? "https://image.tmdb.org/t/p/w500" + a.poster_path
-//                 : "images/placeholder.png"
-//             }" alt="" />
-//             <h4 class="most_watcher_title" > ${
-//               a.title.length > 15 ? a.title.slice(0, 15) + "..." : a.title
-//             }</h4>
-//             <h5 class="most_watcher_info">
-//               <i><img src="../images/star.png" alt=""><p>${a.vote_average
-//                 .toString()
-//                 .slice(0, 3)}</p></i>
-//               <p>${a.release_date ? a.release_date.split("-")[0] : "N/A"}</p>
-//             </h5>
-
-//           </a>`;
-
-//           addAlsoMovie.appendChild(mostWatcher);
-//     });
-//   });
-
-// Assuming genreIds is an array like [28, 35, 18] for Action, Comedy, Drama
 let genreIds = [];
 fetch(
   `https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}&language=${lang}`
 )
   .then((response) => response.json())
   .then((data) => {
-    // Modify genreIds to just hold the current movie ID
     genreIds.push(data.genres[0].id); // Using the movie's ID instead of genre IDs
 
     console.log('Selected Movie ID:', genreIds);
 
-    // Fetch top-rated movies based on the selected movie's ID (genreIds will now hold the movie ID)
     fetch(
       `https://api.themoviedb.org/3/discover/movie?language=${lang}&api_key=2a3c21f7203959050cb73bdefd2b2ae2&with_genres=${genreIds}`
     )
