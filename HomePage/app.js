@@ -64,7 +64,7 @@ const getMovies = (index) => {
       data.results.forEach((element) => {
         let movie = document.createElement("div");
         movie.classList.add("movie");
-        movie.innerHTML = `<a target="_blank" href="../DetailPage/detail.html?id=${
+        movie.innerHTML = `<a target="_blank" href="DetailPage/detail.html?id=${
           element.id
         }">
   <img class="movie_image" src="${
@@ -159,7 +159,7 @@ const searchMovie = (q) => {
     .then((data) => {
       data.results.forEach((element) => {
         resultsDiv.innerHTML += `
-          <a target="_blank" href="../DetailPage/detail.html?id=${element.id}">
+          <a target="_blank" href="DetailPage/detail.html?id=${element.id}">
             <li>
               <img class="search_img" src="https://image.tmdb.org/t/p/w500/${element.poster_path}" />
               <p class="search_title">${element.title}</p>
@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", function () {
         nowPlayingMovies.classList.add("swiper-slide");
 
         nowPlayingMovies.innerHTML = `
-          <a target="_blank"  href="../DetailPage/detail.html?id=${element.id}">
+          <a target="_blank"  href="DetailPage/detail.html?id=${element.id}">
             <div class="main_slider_background">
              <img src="https://image.tmdb.org/t/p/w1280/${
                element.backdrop_path
@@ -269,7 +269,7 @@ fetch(
       mostWatcher.classList.add("swiper-slide");
       mostWatcher.classList.add("most_watcher_slide");
 
-      mostWatcher.innerHTML += `<a target="_blank"  href="../DetailPage/detail.html?id=${
+      mostWatcher.innerHTML += `<a target="_blank"  href="DetailPage/detail.html?id=${
         a.id
       }">
             <img class="most_watcher_image" src="${
@@ -305,7 +305,7 @@ fetch(
       mostWatcher.classList.add("swiper-slide");
       mostWatcher.classList.add("most_watcher_slide");
 
-      mostWatcher.innerHTML += `<a target="_blank"  href="../DetailPage/detail.html?id=${
+      mostWatcher.innerHTML += `<a target="_blank"  href="DetailPage/detail.html?id=${
         a.id
       }">
             <img class="most_watcher_image" src="${
@@ -340,7 +340,7 @@ fetch(
       mostWatcher.classList.add("swiper-slide");
       mostWatcher.classList.add("most_watcher_slide");
 
-      mostWatcher.innerHTML += `<a target="_blank"  href="../DetailPage/detail.html?id=${
+      mostWatcher.innerHTML += `<a target="_blank"  href="DetailPage/detail.html?id=${
         a.id
       }">
             <img class="most_watcher_image" src="${
@@ -394,7 +394,7 @@ const getMoviesByGenre = (genreId, page = 1) => {
       data.results.forEach((element) => {
         let movie = document.createElement("div");
         movie.classList.add("movie");
-        movie.innerHTML = `<a target="_blank" href="../DetailPage/detail.html?id=${
+        movie.innerHTML = `<a target="_blank" href="DetailPage/detail.html?id=${
           element.id
         }">
         <img class="movie_image" src="${
