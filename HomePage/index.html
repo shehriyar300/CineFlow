@@ -32,6 +32,7 @@
         <ul class="search__result"></ul>
         <i class="fa-solid fa-magnifying-glass"></i
         ><input
+          autocomplete="off"
           placeholder="Search any movies..."
           type="text"
           name=""
@@ -42,41 +43,35 @@
     </div>
     <div class="main">
       <div class="genre">
-        <h1>Janrlar</h1>
+        <h1 class="genre_h1"></h1>
         <ul class="genre_ul"></ul>
+        <ul class="language">
       </div>
       <div class="movie_main">
         <div class="slider">
           <div class="swiper mySwiper">
-            <div class="swiper-wrapper slider_add">
-
-
-
-
-              
-            </div>
+            <div class="swiper-wrapper slider_add"></div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
           </div>
         </div>
 
         <div class="genres_movies">
-          <!-- ən çox baxılanlar -->
-          <h1 class="most_h1">Ən çox baxılanlar</h1>
+          <h1 class="most_h1 h1"></h1>
 
           <div class="most_watched">
             <div class="swiper mySwiper_most_watched">
               <div class="swiper-wrapper add_most_watcher"></div>
             </div>
           </div>
-          <h1 class="most_h1">IMDB yüksək olanlar</h1>
+          <h1 class="imdb_h1 h1"></h1>
 
           <div class="most_watched">
             <div class="swiper mySwiper_most_watched">
               <div class="swiper-wrapper add_imdb"></div>
             </div>
           </div>
-          <h1 class="most_h1">Gələcək filmlər</h1>
+          <h1 class="upcomming_h1 h1"></h1>
 
           <div class="most_watched">
             <div class="swiper mySwiper_most_watched">
@@ -84,7 +79,7 @@
             </div>
           </div>
         </div>
-        <h1>filmler</h1>
+        <h1 class="genre_movies_title h1"></h1>
         <div class="movies"></div>
         <ul class="pagination"></ul>
       </div>

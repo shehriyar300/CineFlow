@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="detail.css" />
-    <link rel="icon" href="../images/theater.png" />
+    <link rel="icon" class="head_icon" href="../images/theater.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    
     <title>FILMIN ADI | CineFlow | Film izlə | Serial izlə</title>
   </head>
   <body>
@@ -19,6 +22,7 @@
         <ul class="search__result"></ul>
         <i class="fa-solid fa-magnifying-glass"></i
         ><input
+          autocomplete="off"
           placeholder="Search any movies..."
           type="text"
           name=""
@@ -29,14 +33,32 @@
     </div>
     <div class="main">
       <div class="genre">
-        <h1>Janrlar</h1>
+        <h1></h1>
         <ul class="genre_ul"></ul>
+        <ul class="language"></ul>
       </div>
       <div class="detail_movie">
         <div class="movie_detail"></div>
+       
       </div>
     </div>
-
+    <div class="swiper mySwiper position_a">
+      <div class="swiper-wrapper add_also_movie">
+      </div>
+    </div>
     <script src="detail.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 10,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
   </body>
 </html>
