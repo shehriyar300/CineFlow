@@ -229,7 +229,7 @@ fetch(
                     : "images/placeholder.png"
                 }" alt="" />
                 <h4 class="most_watcher_title" > ${
-                  a.title.length > 15 ? a.title.slice(0, 15) + "..." : a.title
+                  a.title.length > 10 ? a.title.slice(0, 10) + "..." : a.title
                 }</h4>
                 <h5 class="most_watcher_info">
                   <i><img src="../images/star.png" alt=""><p>${a.vote_average

@@ -49,7 +49,6 @@ if (lang == "en-US") {
   document.querySelector(".genre_movies_title").innerHTML = "фильмы";
   document.querySelector(".genre h1").innerHTML = "Жанры";
   document.querySelector(".search__input").placeholder = "Найти любой фильм...";
-  document.querySelector(".logo p").innerHTML = "СинеФлоу";
   watchNow = "Смотреть сейчас";
 }
 let movie = document.createElement("div");
@@ -210,7 +209,10 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then((response) => response.json())
     .then((data) => {
-      data.results.forEach((element) => {
+      // Exclude the last movie by using slice
+      const moviesToDisplay = data.results.slice(0, -1); // Remove the last movie
+
+      moviesToDisplay.forEach((element) => {
         let movieGenres = element.genre_ids
           .map((id) => genreList[id] || "Bilinmiyor")
           .join(", ");
@@ -219,7 +221,7 @@ document.addEventListener("DOMContentLoaded", function () {
         nowPlayingMovies.classList.add("swiper-slide");
 
         nowPlayingMovies.innerHTML = `
-          <a target="_blank"  href="../DetailPage/detail.html?id=${element.id}>
+          <a target="_blank"  href="../DetailPage/detail.html?id=${element.id}">
             <div class="main_slider_background">
              <img src="https://image.tmdb.org/t/p/w1280/${
                element.backdrop_path
@@ -230,16 +232,16 @@ document.addEventListener("DOMContentLoaded", function () {
                   <p>${element.release_date.toString().split("-").join(",")}</p>
                   <pre>${element.vote_average.toString().slice(0, 3)}</pre>
                   <p>${movieGenres}</p>
-                  </div>
-                  <p>${element.overview.slice(0, 150)}...</p>
-                  <button class="btn"><i class="fa-regular fa-circle-play"></i>${watchNow}</button>
+                </div>
+                <p>${element.overview.slice(0, 150)}...</p>
+                <button class="btn"><i class="fa-regular fa-circle-play"></i>${watchNow}</button>
               </div>
             </div>
           </a>`;
-        sliderAddEl.prepend(nowPlayingMovies);
+        sliderAddEl.prepend(nowPlayingMovies); // Add the movie to the slider
       });
 
-      // **Swiper'ı yeniden başlat veya güncelle**
+      // Initialize or update Swiper
       let swiper = new Swiper(".mySwiper", {
         slidesPerView: 1,
         spaceBetween: 10,
@@ -250,7 +252,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       });
 
-      swiper.update(); // **Swiper güncelleniyor**
+      swiper.update(); // Update the Swiper instance
     })
     .catch((error) => console.error("API Hatası:", error));
 });

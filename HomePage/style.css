@@ -454,6 +454,11 @@ object-fit: cover;
   font-size: 20px;
   font-weight: 100;
 }
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after , .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+
+  content: 'prev';
+  color: #ff141486;
+}
 .most_watcher_info i p {
   margin-top: 6px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
