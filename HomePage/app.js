@@ -435,7 +435,9 @@ fetch(
     data.genres.forEach((element) => {
       let genreLi = document.createElement("li");
       genreLi.classList.add("genre_li");
-      genreLi.innerHTML = `<a href="#">${capitalizeFirstLetter(element.name)}</a>`;
+      genreLi.innerHTML = `<a href="#">${capitalizeFirstLetter(
+        element.name
+      )}</a>`;
       genreLi.dataset.genreId = element.id; // Janr ID'sini kaydediyoruz
       genreLi.addEventListener("click", () => {
         document.querySelector(

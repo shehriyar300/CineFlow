@@ -25,14 +25,38 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 var swiper = new Swiper(".mySwiper_most_watched", {
-  slidesPerView: 6,
+  slidesPerView: 6, // Default olaraq 6 slayd göstərir
   spaceBetween: 10,
   freeMode: true,
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
   },
+  breakpoints: {
+    320: {  // Mobil (320px və yuxarı)
+      slidesPerView: 1,
+      spaceBetween: 5,
+    },
+    480: {  // Kiçik planşetlər (480px və yuxarı)
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    768: {  // Böyük planşetlər (768px və yuxarı)
+      slidesPerView: 3,
+      spaceBetween: 10,
+    },
+    1024: { // Kiçik desktoplar (1024px və yuxarı)
+      slidesPerView: 3,
+      spaceBetween: 15,
+    },
+    1280: { // Böyük ekranlar (1280px və yuxarı)
+      slidesPerView: 4,
+      spaceBetween: 20,
+    },
+    1440: { // Extra böyük ekranlar (1440px və yuxarı)
+      slidesPerView: 5,
+      spaceBetween: 20,
+    }
+  }
 });
-
-
 

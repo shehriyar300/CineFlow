@@ -88,6 +88,7 @@ body {
   background-color: #5436409a;
   transition: all 0.5s ease;
 }
+
 .search input {
   border: none;
   outline: none;
@@ -97,6 +98,7 @@ body {
   font-size: 22px;
   padding-left: 8px;
   font-weight: 300;
+  max-width: 100%;
 }
 .search i {
   color: rgba(255, 255, 255, 0.26);
@@ -129,6 +131,7 @@ body {
   background-position: center;
   border-top-left-radius: 56px;
   padding: 36px 0px 36px 36px;
+  width: 80vw;
 }
 
 .genre_li {
@@ -303,8 +306,8 @@ button{
 font-style: normal;
 font-size: 32px;
 color: #fff;
-margin: 30px;
-width:  80vw;
+margin: 30px 0 30px 20px !important;
+width:  75vw;
 }
 .most_h1{
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -321,8 +324,10 @@ margin: 30px;
     rgba(0, 0, 0, 0.098) 90%,
     rgba(0, 0, 0, 0) 100%
   ); */
+  max-width: 95% !important;
   border-radius: 18px;
 }
+
 .btn {
   background-color: #ff1414;
   border: none;
@@ -335,6 +340,15 @@ margin: 30px;
 }
 .btn i {
   margin-right: 20px;
+}
+.slider{
+  width: 76vw;
+  height: 83vh;
+  border-radius: 26px;
+  position: relative;
+}
+.width{
+  width: 100%;
 }
 .main_slider_background h1 {
   color: #fff;
@@ -482,4 +496,8 @@ object-fit: cover;
   font-style: normal;
   color: #fff;
   font-size: 46px;
+}
+.genres_movies{
+  max-width: 95%;
+  overflow: hidden;
 }
