@@ -117,9 +117,27 @@ body {
   padding: 20px;
   color: #fff;
   position: sticky;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
+  width: 250px;
+  max-height: 100vh; /* Maksimum hündürlük */
+  overflow-y: auto; /* Şaquli scroll aktiv edilir */
 }
+
+/* Scrollbar dizaynı */
+.genre::-webkit-scrollbar {
+  width: 0px;
+}
+
+.genre::-webkit-scrollbar-thumb {
+  background: rgba(168, 168, 168, 0.5);
+  border-radius: 8px;
+}
+
+.genre::-webkit-scrollbar-thumb:hover {
+  background: rgba(75, 54, 54, 0.8);
+}
+
 .genre h1 {
   font-weight: 500;
 }
