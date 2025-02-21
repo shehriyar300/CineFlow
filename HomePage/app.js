@@ -452,7 +452,7 @@ menuBtn.addEventListener("click", () => {
     a.style.display = a.style.display === "block"? "none":"block";
   })
   let svg = document.querySelector(".menu-btn");
-  svg.innerHTML == `︽` ? (svg.innerHTML = `☰`) : (svg.innerHTML = `︽`);
+  svg.innerHTML == `︽` ? (svg.innerHTML = `☰`,svg.style.color="#fff") : (svg.innerHTML = `︽`,svg.style.color="red");
 
   setTimeout(() => {
     menuBtn.classList.remove("clicked");

@@ -533,7 +533,7 @@ button {
 
 .menu-btn {
   margin: 0 auto;
-  font-size: 30px;
+  font-size: 50px !important;
   color: white;
   background: none;
   border: none;
@@ -616,12 +616,13 @@ button {
   .main {
     display: block;
   }
+
   .genre {
     text-align: center;
     width: 100%;
     display: none;
     position: relative;
-
+    margin: 20px 0 50px 0;
   }
 }
 
@@ -640,6 +641,8 @@ button {
     text-align: center;
     width: 100%;
     display: none;
+    position: relative;
+    margin: 20px 0 50px 0;
   }
 }
 
@@ -658,5 +661,7 @@ button {
     text-align: center;
     width: 100%;
     display: none;
+    position: relative;
+    margin: 20px 0 50px 0;
   }
 }
