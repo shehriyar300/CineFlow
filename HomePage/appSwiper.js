@@ -51,7 +51,7 @@ var swiper = new Swiper(".mySwiper_most_watched", {
     },
     480: {  // Kiçik planşetlər (480px və yuxarı)
       slidesPerView: 2,
-      spaceBetween: 10,
+      spaceBetween: 1,
     },
     768: {  // Böyük planşetlər (768px və yuxarı)
       slidesPerView: 3,
