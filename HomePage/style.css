@@ -122,6 +122,7 @@ body {
   width: 250px;
   max-height: 100vh; /* Maksimum hündürlük */
   overflow-y: auto; /* Şaquli scroll aktiv edilir */
+  transition: height 0.3s ease; /* Yüksekliği animasyonla değiştir */
 }
 
 /* Scrollbar dizaynı */
@@ -216,10 +217,11 @@ body {
   background-color: rgba(43, 43, 56, 0);
   transition: all 0.5s ease;
 }
-.movie :hover {
+.movie:hover {
   transition: all 0.5s ease;
   background-color: rgba(43, 43, 56, 0.5);
   border-radius: 26px;
+  filter: drop-shadow();
 }
 
 .movie_image {
@@ -232,6 +234,7 @@ body {
   color: #fff;
   font-size: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0 10px;
   margin-top: 10px;
 }
 .movie_info {
@@ -239,6 +242,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin: 14px 0;
+  padding: 0 10px;
   color: hsla(0, 0%, 100%, 0.504);
 }
 
@@ -278,7 +282,9 @@ body {
     #1d191e 100%
   );
 }
-
+.none {
+  display: none !important;
+}
 .mySwiper img {
   width: 100%;
   height: 100%;
@@ -289,7 +295,6 @@ body {
   left: 0;
   z-index: -1;
 }
-
 
 .swiper-slide a h1 {
   color: #fff;
@@ -302,7 +307,7 @@ body {
   color: #fff;
 }
 
-button{
+button {
   background-color: #ff1414;
   border: none;
   border-radius: 10px;
@@ -313,27 +318,25 @@ button{
   cursor: pointer;
 }
 
-
-
 .most_watched {
   display: block;
 }
-.h1{
+.h1 {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-  "Lucida Sans", Arial, sans-serif, Times, serif;
-font-style: normal;
-font-size: 32px;
-color: #fff;
-margin: 30px 0 30px 20px !important;
-width:  75vw;
+    "Lucida Sans", Arial, sans-serif, Times, serif;
+  font-style: normal;
+  font-size: 32px;
+  color: #fff;
+  margin: 30px 0 30px 20px !important;
+  width: 75vw;
 }
-.most_h1{
+.most_h1 {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-  "Lucida Sans", Arial, sans-serif, Times, serif;
-font-style: normal;
-font-size: 32px;
-color: #fff;
-margin: 30px;
+    "Lucida Sans", Arial, sans-serif, Times, serif;
+  font-style: normal;
+  font-size: 32px;
+  color: #fff;
+  margin: 30px;
 }
 .mySwiper_most_watched .swiper-wrapper .swiper-slide {
   /* background: linear-gradient(
@@ -359,13 +362,13 @@ margin: 30px;
 .btn i {
   margin-right: 20px;
 }
-.slider{
+.slider {
   width: 76vw;
   height: 83vh;
   border-radius: 26px;
   position: relative;
 }
-.width{
+.width {
   width: 100%;
 }
 .main_slider_background h1 {
@@ -437,10 +440,8 @@ margin: 30px;
   /* height: 400px; */
 }
 .most_watcher_image {
-
-object-fit: cover;
+  object-fit: cover;
   height: 371px;
-
 }
 .most_watcher_slide {
   width: 100%;
@@ -486,9 +487,11 @@ object-fit: cover;
   font-size: 20px;
   font-weight: 100;
 }
-.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after , .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
-
-  content: 'prev';
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after,
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  content: "prev";
   color: #ff141486;
 }
 .most_watcher_info i p {
@@ -507,15 +510,150 @@ object-fit: cover;
   grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
 }
 
-
-.genre_movies_title{
+.genre_movies_title {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif, Times, serif;
   font-style: normal;
   color: #fff;
   font-size: 46px;
 }
-.genres_movies{
+.genres_movies {
   max-width: 95%;
   overflow: hidden;
+}
+/* Navbar stilleri */
+.navbar {
+  position: relative;
+  background-color: #333;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu-btn {
+  margin: 0 auto;
+  font-size: 30px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Dalgali animasyon */
+@keyframes waveAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.menu-btn.clicked {
+  animation: waveAnimation 0.6s ease;
+}
+.menu-btn {
+  display: none;
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1599px) {
+}
+
+/* 3. Orta Büyük Ekran (min-width: 1200px ve max-width: 1399px) */
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  * {
+    font-size: 20px !important;
+  }
+  .h1 {
+    font-size: 40px !important;
+  }
+  .main_slider_text h1 {
+    font-size: 48px !important;
+  }
+}
+
+/* 4. Normal Laptop (min-width: 1024px ve max-width: 1199px) */
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+  * {
+    font-size: 20px !important;
+  }
+  .h1 {
+    font-size: 30px !important;
+  }
+  .main_slider_text h1 {
+    font-size: 44px !important;
+  }
+}
+
+/* 5. Tablet (768px ve 1023px arası) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  * {
+    font-size: 18px !important;
+  }
+}
+
+/* 6. Küçük Tablet (600px ve 767px arası) */
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+  * {
+    font-size: 16px !important;
+  }
+  .main {
+    display: block;
+  }
+  .genre {
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
+}
+
+/* 7. Büyük Mobil (480px ve 599px arası) */
+@media screen and (min-width: 480px) and (max-width: 599px) {
+  * {
+    font-size: 12px !important;
+  }
+  .menu-btn {
+    display: block;
+  }
+  .main {
+    display: block;
+  }
+  .genre {
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
+}
+
+/* 8. Orta Küçük Mobil (380px ve 479px arası) */
+@media screen and (min-width: 380px) and (max-width: 479px) {
+  * {
+    font-size: 12px !important;
+  }
+  .menu-btn {
+    display: block;
+  }
+  .main {
+    display: block;
+  }
+  .genre {
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
 }

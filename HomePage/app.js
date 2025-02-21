@@ -235,24 +235,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 <p>${element.overview.slice(0, 150)}...</p>
                 <button class="btn"><i class="fa-regular fa-circle-play"></i>${watchNow}</button>
+
               </div>
             </div>
           </a>`;
         sliderAddEl.prepend(nowPlayingMovies); // Add the movie to the slider
       });
 
-      // Initialize or update Swiper
-      let swiper = new Swiper(".mySwiper", {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        loop: true,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
+      document.querySelectorAll(".swiper-slide").forEach((slide) => {
+        if (!slide.innerHTML.trim()) {
+          slide.remove();
+        }
       });
-
-      swiper.update(); // Update the Swiper instance
     })
     .catch((error) => console.error("API Hatası:", error));
 });
@@ -384,7 +378,7 @@ const getMoviesByGenre = (genreId, page = 1) => {
   document.querySelector(".slider_add").style.display = "none";
   document.querySelector(".swiper").style.display = "none";
   document.querySelector(".genres_movies").style.display = "none";
-
+  document.querySelector(".slider").style.display = "none";
   fetch(
     `https://api.themoviedb.org/3/discover/movie?language=${lang}&api_key=${api_key}&with_genres=${genreId}&page=${page}`
   )
@@ -423,10 +417,6 @@ const getMoviesByGenre = (genreId, page = 1) => {
     .catch((error) => console.error("Error fetching movies by genre:", error));
 };
 
-function capitalizeFirstLetter(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
 fetch(
   `https://api.themoviedb.org/3/genre/movie/list?language=${lang}&api_key=${api_key}`
 )
@@ -449,3 +439,25 @@ fetch(
     });
   })
   .catch((error) => console.error("Error fetching genres:", error));
+
+function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+const menuBtn = document.querySelector(".menu-btn");
+
+menuBtn.addEventListener("click", () => {
+  let genreh1= document.querySelectorAll(".genre").forEach((a)=>{
+
+    a.style.display = a.style.display === "block"? "none":"block";
+  })
+  let svg = document.querySelector(".menu-btn");
+  svg.innerHTML == `︽` ? (svg.innerHTML = `☰`) : (svg.innerHTML = `︽`);
+
+  setTimeout(() => {
+    menuBtn.classList.remove("clicked");
+  }, 600);
+  menuBtn.classList.toggle("clicked");
+
+  
+});
