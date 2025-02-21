@@ -120,7 +120,6 @@ body {
   top: 0;
   left: 0;
   width: 250px;
-  z-index: -999;
   max-height: 100vh; /* Maksimum hündürlük */
   overflow-y: auto; /* Şaquli scroll aktiv edilir */
   transition: height 0.3s ease; /* Yüksekliği animasyonla değiştir */
