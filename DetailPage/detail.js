@@ -44,6 +44,24 @@ function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+const menuBtn = document.querySelector(".menu-btn");
+
+menuBtn.addEventListener("click", () => {
+  let genreh1= document.querySelectorAll(".genre").forEach((a)=>{
+
+    a.style.display = a.style.display === "block"? "none":"block";
+  })
+  let svg = document.querySelector(".menu-btn");
+  svg.innerHTML == `︽` ? (svg.innerHTML = `☰`,svg.style.color="#fff") : (svg.innerHTML = `︽`,svg.style.color="red");
+
+  setTimeout(() => {
+    menuBtn.classList.remove("clicked");
+  }, 600);
+  menuBtn.classList.toggle("clicked");
+
+  
+});
+
 // fetch(
 //   `https://api.themoviedb.org/3/genre/movie/list?language=${lang}&api_key=${api_key}`
 // )

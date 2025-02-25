@@ -34,6 +34,7 @@
       </div>
     </div>
     <div class="main">
+      <button class="menu-btn">☰</button>
       <div class="genre">
         <h1></h1>
         <ul class="genre_ul"></ul>
@@ -56,14 +57,25 @@
 
     <!-- Initialize Swiper -->
     <script>
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 4,
-        spaceBetween: 10,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-      });
+    var swiper = new Swiper(".mySwiper", {
+  spaceBetween: 10,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    320: { // Mobil ekranlar
+      slidesPerView: 1,
+    },
+    768: { // Planşetlər
+      slidesPerView: 2,
+    },
+    1024: { // Kompüterlər
+      slidesPerView: 4,
+    },
+  },
+});
+
     </script>
   </body>
 </html>

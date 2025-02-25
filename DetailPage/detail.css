@@ -106,7 +106,6 @@ body {
   margin-right: 5px;
 }
 
-
 .main {
   display: flex;
   align-items: Start;
@@ -169,7 +168,7 @@ body {
 }
 
 .detail_movie > img {
-  width: 400px;
+  width: 27%;
   height: max-content;
   object-fit: cover;
   border-radius: 20px;
@@ -180,7 +179,7 @@ body {
 .detail_movie {
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100%;
+  width: 95%;
   padding: 30px;
   border-radius: 30px;
   margin-left: 80px;
@@ -191,6 +190,7 @@ body {
   position: relative;
   height: 940px;
   margin-bottom: 700px;
+  overflow-y: scroll;
 }
 .detail_movie_info {
   color: #fff;
@@ -206,7 +206,7 @@ body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif, Times, serif;
   font-style: bold;
-  font-size: 70px;
+  font-size: 7dvw;
   font-weight: 900;
 }
 .movie_about {
@@ -220,7 +220,7 @@ body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif, Times, serif;
   font-style: normal;
-  font-size: 22px;
+  font-size: 3dvh;
 }
 .detail_movie_imdb i {
   font-style: normal;
@@ -247,7 +247,8 @@ button {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif, Times, serif;
   font-style: normal;
-  font-size: 22px;
+  font-size: 2dvh;
+
   margin-bottom: 20px;
   color: #ffffffa7;
 }
@@ -255,7 +256,8 @@ button {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif, Times, serif;
   font-style: normal;
-  font-size: 22px;
+  font-size: 2dvh;
+width: 50%;
   color: #ffffffa7;
   margin-bottom: 20px;
 }
@@ -418,25 +420,24 @@ button {
   width: 30px;
   object-fit: cover;
 }
-.genre_generation{
-
-  width: 80vw; display: grid;
+.genre_generation {
+  width: 80vw;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
   margin: 60px 0;
 }
-.genre_generation_title{
+.genre_generation_title {
   /* transform:translate3d(40px, -90px, 0); */
   position: static;
   color: #fff;
-  top: 70px  ;
+  top: 70px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif,
-  Geneva, Tahoma, sans-serif;
-background-color: rgba(43, 43, 56, 0);
-transition: all 1.5s ease;
-font-size: 70px;
-z-index: -1;
+    Geneva, Tahoma, sans-serif;
+  background-color: rgba(43, 43, 56, 0);
+  transition: all 1.5s ease;
+  font-size: 70px;
+  z-index: -1;
 }
-
 
 .movie {
   width: 90%;
@@ -455,7 +456,7 @@ z-index: -1;
   transition: all 0.5s ease;
   background-color: rgba(43, 43, 56, 0.5);
   border-radius: 26px;
-  filter: drop-shadow(  );
+  filter: drop-shadow();
 }
 
 .movie_image {
@@ -501,4 +502,357 @@ z-index: -1;
   margin-top: 8px;
   font-weight: 100;
   font-style: normal;
+}
+.genre_movies_title {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif, Times, serif;
+  font-style: normal;
+  color: #fff;
+  font-size: 46px;
+}
+.genres_movies {
+  max-width: 95%;
+  overflow: hidden;
+}
+/* Navbar stilleri */
+.navbar {
+  position: relative;
+  background-color: #333;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu-btn {
+  margin: 0 auto;
+  font-size: 50px !important;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Dalgali animasyon */
+@keyframes waveAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.menu-btn.clicked {
+  animation: waveAnimation 0.6s ease;
+}
+.menu-btn {
+  display: none;
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1599px) {
+}
+
+/* 3. Orta Büyük Ekran (min-width: 1200px ve max-width: 1399px) */
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  /* * {
+    font-size: 20px !important;
+  } */
+  .h1 {
+    font-size: 40px !important;
+  }
+  .main_slider_text h1 {
+    font-size: 48px !important;
+  }
+  .swiper-slide {
+    flex-shrink: 0;
+    width: 27% !important;
+    height: 100% !important;
+    position: relative;
+    transition-property: transform;
+    display: block;
+  }
+}
+
+/* 4. Normal Laptop (min-width: 1024px ve max-width: 1199px) */
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+  /* * {
+    font-size: 20px !important;
+  } */
+  .h1 {
+    font-size: 30px !important;
+  }
+  .main_slider_text h1 {
+    font-size: 44px !important;
+  }
+  .swiper-slide {
+    flex-shrink: 0;
+    width: 33% !important;
+    height: 100% !important;
+    position: relative;
+    transition-property: transform;
+    display: block;
+  }
+}
+
+/* 5. Tablet (768px ve 1023px arası) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* * {
+    font-size: 18px !important;
+  } */
+  .detail_movie{
+    margin: 0 auto !important;;
+  }
+  body {
+    background-color: #0f1115;
+    position: relative;
+    padding-left: 20px;
+  }
+  .swiper{
+    margin-top: 84% !important;
+  }
+  .swiper-slide {
+    flex-shrink: 0;
+    width: 50% !important;
+    height: 100% !important;
+    position: relative;
+    transition-property: transform;
+    display: block;
+  }
+  .movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+    margin: 60px 0;
+  }
+  .movie h4,
+  .movie h5 {
+    padding: 0 60px;
+  }
+}
+
+/* 6. Küçük Tablet (600px ve 767px arası) */
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }  .detail_movie{
+    margin: 0 auto !important;;
+  }
+  .swiper{
+    margin-top: 110% !important;
+  }
+  /* * {
+    font-size: 16px !important;
+  } */
+  .main {
+    display: block;
+  }
+  .swiper-slide {
+    flex-shrink: 0;
+    width: 50% !important;
+    height: 100% !important;
+    position: relative;
+    transition-property: transform;
+    display: block;
+  }
+  .genre {
+    text-align: center;
+    width: 100%;
+    display: none;
+    position: relative;
+    margin: 20px 0 50px 0;
+  }
+  .movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 1fr));
+    margin: 60px 0;
+  }
+  .swiper-wrapper {
+    background: #00000000;
+  }
+  .movie_main {
+    background-color: #54364000;
+    padding: 0;
+    margin: 0 auto;
+  }
+  body {
+    background-color: #0f1115;
+    position: relative;
+    padding-left: 20px;
+  }
+  .movie_image {
+    width: 170px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 26px;
+  }
+  .movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+    margin: 60px 0;
+  }
+}
+
+/* 7. Büyük Mobil (480px ve 599px arası) */
+@media screen and (min-width: 480px) and (max-width: 599px) {
+  /* * {
+    font-size: 14px !important;
+  } */  .detail_movie{
+    margin: 0 auto !important;;
+  } .swiper{
+    margin-top: 135% !important;
+  }
+  .main_slider_text h1 {
+    font-size: 32px !important;
+  }
+  .h1 {
+    font-size: 26px !important;
+  }
+  .menu-btn {
+    display: block;
+  }
+  .main {
+    display: block;
+  }
+  .swiper-slide {
+    flex-shrink: 0;
+    width: 70% !important;
+    height: 100% !important;
+    position: relative;
+    transition-property: transform;
+    display: block;
+  }
+  .genre {
+    text-align: center;
+    width: 100%;
+    display: none;
+    position: relative;
+    margin: 20px 0 50px 0;
+  }
+  .movie_main {
+    background-color: #54364000;
+    padding: 0;
+    margin: 0 auto;
+  }
+  body {
+    background-color: #0f1115;
+    position: relative;
+    padding-left: 20px;
+  }
+  .movie_image {
+    width: 170px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 26px;
+  }
+  .movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    margin: 60px 0;
+  }
+}
+
+/* 8. Orta Küçük Mobil (380px ve 479px arası) */
+@media screen and (min-width: 380px) and (max-width: 479px) {
+  /* * {
+    font-size: 12px !important;
+  } */  .detail_movie{
+    margin: 0 auto !important;;
+  } .swiper{
+    margin-top: 170% !important;
+  }
+  .menu-btn {
+    display: block;
+  }
+  .main {
+    display: block;
+  }
+  body {
+    background-color: #0f1115;
+    position: relative;
+    padding-left: 20px;
+  }
+  .genre {
+    text-align: center;
+    width: 100%;
+    display: none;
+    position: relative;
+    margin: 20px 0 50px 0;
+  }
+  .movie_main {
+    background-color: #54364000;
+    padding: 0;
+    margin: 0 auto;
+  }
+  .movie_image {
+    width: 170px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 26px;
+  }.swiper-slide {
+    flex-shrink: 0;
+    width: 85% !important;
+    height: 100% !important;
+    position: relative;
+    transition-property: transform;
+    display: block;
+  }
+  .movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    margin: 60px 0;
+  }
+}
+@media screen and (max-width: 380px) {
+  * {
+    font-size: 12px !important;
+  }  .detail_movie{
+    margin: 0 auto !important;;
+  }
+  .menu-btn {
+    display: block;
+  }
+  .main {
+    display: block;
+  }.swiper-slide {
+    flex-shrink: 0;
+    width: 100% !important;
+    height: 100% !important;
+    position: relative;
+    transition-property: transform;
+    display: block;
+  }
+  body {
+    background-color: #0f1115;
+    position: relative;
+    padding-left: 20px;
+  }
+  .genre {
+    text-align: center;
+    width: 100%;
+    display: none;
+    position: relative;
+    margin: 20px 0 50px 0;
+  }
+  .movie_main {
+    background-color: #54364000;
+    padding: 0;
+    margin: 0 auto;
+  }
+  .movie_image {
+    width: 170px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 26px;
+  }
 }
