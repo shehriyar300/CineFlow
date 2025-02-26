@@ -10,12 +10,11 @@ liLang.innerHTML = ` <li><button data-lang="tr">Turkish</button></li>
   <li><button data-lang="en-US">English</button></li>
   <li><button data-lang="ru">Russian</button></li>`;
 ulLangs.appendChild(liLang);
-
 document.querySelectorAll(".language button").forEach((button) => {
   button.addEventListener("click", (e) => {
     lang = e.target.getAttribute("data-lang");
     localStorage.setItem("selectedLang", lang);
-    location.reload();
+    location.reload();  
   });
 });
 

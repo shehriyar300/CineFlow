@@ -222,7 +222,7 @@ const searchMovie = (q) => {
     .then((data) => {
       data.results.forEach((element) => {
         resultsDiv.innerHTML += `
-            <a target="_blank" href="DetailPage/detail.html?id=${element.id}">
+            <a target="_blank" href="../DetailPage/detail.html?id=${element.id}">
               <li>
                 <img class="search_img" src="https://image.tmdb.org/t/p/w780/${element.poster_path}" />
                 <p class="search_title">${element.title}</p>
